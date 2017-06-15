@@ -1,0 +1,123 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans");
+
+/* Styles */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Open Sans";
+  font-size: 14px;
+}
+
+form {
+  padding: 10px;
+  background: #D0CDCD;
+  color: #000;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  width: 500px;
+  position: absolute;
+  display: none;
+  z-index: 10;
+}
+
+form label,
+form input {
+  margin-bottom: 3px;
+}
+
+form textarea {
+  padding: 5px;
+  resize: none;
+  width: 450px;
+  height: 150px;
+}
+    
+
+form button {
+  line-height: 30px;
+  margin-top: 10px;
+  cursor: pointer;
+  display: inline;
+  border: 15px;
+  position: relative;
+}
+
+.errormsg {
+  color: #ff0000;
+  visibility: hidden; 
+}
+
+.event, .overflow {
+  stroke:#111;
+  fill:#eee;
+  fill-opacity:1;
+  stroke-opacity:1;
+  -webkit-transition-duration: 0.1s; /* Safari */
+  transition-duration: 0.1s;
+  cursor: pointer;
+  font: 12px Roboto;
+  position: absolute;
+  display: none; 
+  top: 0;
+  left: 0;
+}
+
+
+.calnames {Untitled event
+  display: flex;
+  justify-content: space-around;
+  position: absolute; 
+  text-align: left;
+  visibility: hidden; 
+}
+
+.error {
+  border: #ff0000 1px solid;
+}
+
+.sidenav {
+  background-color: #f1f1f1;
+  height: 100%;
+}
+
+.ad {
+    width: 300px;
+    height: 250px;
+    border: 1px solid blue; 
+    position: relative; 
+}
+
+.weekdays {
+      text-align: center; 
+      table-layout: fixed;   
+      position: absolute;
+}
+
+ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+      position: absolute; 
+      display: table;
+      table-layout: fixed;
+  }
+li {
+      display: table-row;
+  }
+
+tspan {
+  stroke-width:0;
+  fill: #000;
+  text-align: left;
+}
+
+h4 {
+  color: teal;
+}
+
+
+

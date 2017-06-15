@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Interactive Year Planner</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" href="yplogo.ico" type="image.x-icon" />
+<link rel="stylesheet" type="text/css" href="planstyle.css?v=19">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker3.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.min.js"></script>
+<script src="plan01a.js"></script>
+</head>
+
+<body>
+<div class="container" style = "position: relative; margin: 0; ">
+  <div class="row">
+    <div class="col-lg-4 sidenav" >
+      <h4 style="color: #33cccc"><b>Interactive Year Planner</b></h4>
+      <p>Display a year planner for any year between 1589 and 2050. Optionally sign in to a Google account and display events from the calendar on the year planner.  
+      
+<!-- border in the two following divs just for debugging - remove when done -->
+      <div id="google-signin-button" style="height: 40px; display: block"></div>  
+      <div id="signed-in" style="height: 40px; display: none">
+        <p><span id=name>Signed in: </span>
+        <button id="signout-button" class="btn-sm btn-default" style="display: inline-block">Sign Out</button></p>
+      </div>
+<!-- year picker select drop down -->
+      <div class="input-group">
+        <p><p>
+        <span>Year &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+        <span class="glyphicon glyphicon-chevron-left btn-default" id="left"></span>
+        <select name="yearpicker" id="yearpicker"></select>
+        <span class="glyphicon glyphicon-chevron-right btn-default" id="right"></span>
+      </div>
+<!-- calendar selector -->
+      <p>Select Calendar
+      <br>
+      <div class="form-control callist" placeholder="Calendar list" id=callist style="line-height: 10px; width: 325px; height:100px; overflow:auto;  border-width: 1px; border-color: blue;">
+        <button class="btn-link calname" id=calid style="display: none">Summary</button>
+      </div>
+
+
+      <div style="height: 15px"></div>      
+      <div class="ad" style="left:25px">Ads</div> 
+      <div style="height: 30px"></div>
+      <div class="ad" style="left:25px">Ads</div> 
+      <div style="height: 15px"></div>
+
+  		<p><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+      <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+      <a href="about.html">About</a>
+    </div>
+
+	<div class="col-lg-8" id="planner" style = "position: relative; padding: 0">
+		<div id="main01">
+			<canvas id="myCanvas" width="1350" height="900" style="border:1px solid #000000">
+			Your browser does not support the HTML5 canvas tag.
+			</canvas>
+    </div>
+
+    <div>
+      <table id="weektab" style="visibility: hidden;" class="weekdays">
+      <tr>
+      <td>Sat</td>
+      <td>Sun</td>
+      <td>Mon</td>
+      <td>Tue</td>
+      <td>Wed</td>
+      <td>Thu</td>
+      <td>Fri</td>
+      <td>Sat</td>
+      <td>Sun</td>
+      <td>Mon</td>
+      <td>Tue</td>
+      <td>Wed</td>
+      <td>Thu</td>
+      <td>Fri</td>
+      <td>Sat</td>
+      <td>Sun</td>
+      <td>Mon</td>
+      <td>Tue</td>
+      <td>Wed</td>
+      <td>Thu</td>
+      <td>Fri</td>
+      <td>Sat</td>
+      <td>Sun</td>
+      <td>Mon</td>
+      <td>Tue</td>
+      <td>Wed</td>
+      <td>Thu</td>
+      <td>Fri</td>
+      <td>Sat</td>
+      <td>Sun</td>
+      <td>Mon</td>
+      <td>Tue</td>
+      <td>Wed</td>
+      <td>Thu</td>
+      <td>Fri</td>
+      <td>Sat</td>
+      <td>Sun</td>
+      <tr>
+      </table>
+    </div>
+
+    <div style="visibility: hidden;">
+      <ul id="months_left">
+      <li>Jan
+      <li>Feb
+      <li>Mar
+      <li>Apr
+      <li>May
+      <li>Jun
+      <li>Jul
+      <li>Aug
+      <li>Sep
+      <li>Oct
+      <li>Nov
+      <li>Dec
+      </ul>
+    </div>
+
+    <div id="year_title" class="calnames">
+      <p>YYYY</p>
+    </div>
+
+    <div class="event" id="event0">
+    <svg id = "svg0" height="15" width="170">
+    <g id="gid0">
+      <polygon id="poly0" points="0,0 165,0 165,15 0,15"></polygon>
+      <text x=5 y=75%>
+        <tspan id="text0">
+          event details 33
+        </tspan>
+      </text>
+    </g>
+    </svg>
+    </div>
+
+    <div class="overflow" id="overflow0" style="cursor: auto">
+      <svg id ="svg1" height="15" width="60">
+      <text x=5 y=75%>
+        <tspan id="text1">
+          event details 33
+        </tspan>
+      </text>
+      </svg>
+    </div>
+
+    <form id="form0">
+      <div class="form-group container" id="details0" >
+        <label form="text0">Event</label>
+        <br>
+        <textarea id="text0" name="message"></textarea>
+        <input type="hidden" id="changeFlag" name="changeFlag" value="0">
+        <input type="hidden" id="errorFlag" name="errorFlag" value="0">
+        <input type="hidden" id="elemId" name="elemId" value="">
+        <input type="hidden" id="sequence" name="sequence" value="0">
+        <div class="errormsg" id="sderror">    
+          <p>Error message</p>
+        </div>
+
+        <div class="input-group input-daterange" id="daterange" style="width: 450px">
+          <div class="input-group-addon" style="cursor: default;">Start date:</div>
+          <input class="form-control" id="startDate" type="text" name="startDate">
+          <div class="input-group-addon" style="cursor: default;">End date:</div>
+          <input class="form-control" id="endDate" type="text" name="endDate">  
+        </div>
+        <p></p>
+          <button type="button" id="save0" class="btn btn-primary" style="left: 50px">Update</button>
+          <button type="button" id="discard0" class="btn btn-primary" style="left: 250px" >Cancel</button>
+      </div>
+    </form>
+	</div>
+  </div>
+</div>
+<script async defer src="https://apis.google.com/js/api.js"
+  onload="this.onload=function(){};makeRequest()"
+  onreadystatechange="if (this.readyState === 'complete') this.onload()">    
+</script>
+</body>
+</html>
