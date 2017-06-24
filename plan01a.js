@@ -42,8 +42,7 @@ function calendarInfo (id, summary, accessRole) {
 
 function yearpicker (reqYear) {
 // set up yearpicker defaulting to reqYear
-  var i
-  for (i = 2050; i > 1589; i--) {
+  for (var i = 2050; i > 1589; i--) {
     $('#yearpicker').append($('<option />').val(i).html(i))
     var thisyear = reqYear
     $('#yearpicker').val(thisyear)
@@ -80,8 +79,7 @@ function blankPlanner (reqYear) {
 // get first day of week for each month to calc position on planner
   var monthFirstDay = []
   var monthLastDay = []
-  var i
-  for (i = 0; i < 12; ++i) {
+  for (var i = 0; i < 12; ++i) {
     var dayOne = new Date(reqYear, i, 1)
     monthFirstDay[i] = dayOne.getDay() + 1   //  Sun is 0, Sat is 6, the +1 makes Sun 1 but Sat 7 and want Sat 0
     monthFirstDay[i] = monthFirstDay[i] % 7 // mod 7 it to get Sat back to 0 and leave others as is
@@ -228,9 +226,8 @@ function blankPlanner (reqYear) {
   // put date numbers above the thin blue lines
   ctx.font = dateFont
   ctx.fillStyle = 'black'
-  var j
   for (i = 0; i < 12; ++i) {
-    for (j = 0; j < daysInMonth[i]; ++j) {
+    for (var j = 0; j < daysInMonth[i]; ++j) {
       var adjust = 0
       if (j > 8) adjust = -3    // left adjust slightly to align 2 digit numbers properly
       ctx.fillText(j + 1, gridX + 15 + dayWidth * j + monthFirstDay[i] * dayWidth + adjust, gridY + 10 + monthHeight * i)
@@ -316,8 +313,7 @@ function getCalendars () {
       var calendars = response.result.items
       var rows = []
       if (calendars.length > 0) {
-        var i
-        for (i = calendars.length - 1; i >= 0; i--) {   // reverse through array as displays cals in more logical order
+        for (var i = calendars.length - 1; i >= 0; i--) {   // reverse through array as displays calendars in more logical order
           var summary = calendars[i].summary
           var calid = calendars[i].id
           var access = calendars[i].accessRole
@@ -392,7 +388,7 @@ function displayEvents () {
     }
   }
 
-// need to loop through events held in eventInfo object and display them
+  // need to loop through events held in eventInfo object and display them
 
   for (var j = 0; j < events.length; j++) {
     var eventId = events[j]
@@ -435,9 +431,7 @@ function displayEvents () {
     }
 
     // check which slot is available and book it, k is the slot counter
-
-    var k
-    for (k = 0; k <= maxSlots; ++k) {
+    for (var k = 0; k <= maxSlots; ++k) {
       var clear = 0        // stays as 0 if the slot if available for the required number of days
       for (r = a; r <= b; ++r) {
         clear = clear + eventsPerDay[r][k]
@@ -501,15 +495,18 @@ function displayEvents () {
 
       // set up listeners and event handlers once display is complete
   function updateEvent (id, newText, startDate, endDate, sequence) {
-      // do the google APIU stuff first and if fails just redisplay (event may have been updated elsewhere)
+      // do the google API stuff first and if fails just redisplay (event may have been updated elsewhere)
       // if works then just update event and redisplay
+    var end
     var start = startDate.format('YYYY-MM-DD')
+    var calendarId
     // need to increment endDate by 1 day to make whole day events work properly
     endDate.add(1, 'day')
-    var end = endDate.format('YYYY-MM-DD')
+    end = endDate.format('YYYY-MM-DD')
     sequence = sequence + 1
+    calendarId = sheetVariables.one.reqCalendar
     var request = gapi.client.calendar.events.update({
-      'calendarId': 'lpsc36fa5jstuqfb5lu63u18jk@group.calendar.google.com',
+      'calendarId': calendarId,
       'eventId': id,
       'summary': newText,
       'start': {
@@ -682,11 +679,10 @@ function writeEvent (sd, ed, text, cont, rank, eventId) {
   var topLeftEventX
   var el
   var eventOutput
-  var k
 
   topLeftEventY = topLeftY + monthHeight * startMonth + (rank + 1) * eventIncrementY
 
-  if (k < maxSlots) {     // normal event
+  if (rank < maxSlots) {     // normal event
     // set size and position of events
 
     var pointString
@@ -721,7 +717,7 @@ function writeEvent (sd, ed, text, cont, rank, eventId) {
     $('#text0', eventOutput).text(text)
     eventOutput.show() // css({"visibility": "visible"});
     // end of clone and position
-  } else {  // write over flow k!< maxSlots
+  } else {  // write over flow rank!< maxSlots
     topLeftEventX = topLeftX + dayWidth * ((startDay) + monthFirstDay[startMonth] - 0.95)
     topLeftEventY = topLeftY + monthHeight * startMonth + (maxSlots + 0.75) * eventIncrementY
     text = '+ more'
