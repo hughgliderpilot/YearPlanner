@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Interactive Year Planner</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" href="yplogo.ico" type="image.x-icon" />
+<link rel="stylesheet" type="text/css" href="planstyle.css?v=13">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker3.min.css">
+</head>
+
+<body>
+<div class="container" style = "position: relative; margin: 0; ">
+  <div class="row">
+    <div class="col-lg-4 sidenav" >
+      <h4 style="color: #33cccc"><b>Interactive Year Planner</b></h4>
+      <p>Display a year planner for any year between 1589 and 2050. Optionally sign in to a Google account and display events from the calendar on the year planner.  
+      
+      <div style="height: 15px"></div>      
+      <div class="ad" style="left:25px">Ads</div> 
+      <div style="height: 30px"></div>
+      <div class="ad" style="left:25px">Ads</div> 
+      <div style="height: 15px"></div>
+
+  		<p><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+      <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+      <a href="index.html">Back to Planner</a>
+    </div>
+
+  	<div class="col-lg-8" id="planner" style = "position: relative;"">
+
+
+<p class=MsoNormal style='margin-top:15.0pt;margin-right:0cm;margin-bottom:
+7.5pt;margin-left:0cm;line-height:normal;mso-outline-level:1;background:white'><span
+style='font-size:27.0pt;font-family:"Helvetica",sans-serif;mso-fareast-font-family:
+"Times New Roman";color:#33CCCC;mso-font-kerning:18.0pt;mso-fareast-language:
+EN-GB'>Instructions to make a Calendar public and find the Calendar ID<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+normal'><span style='mso-ascii-font-family:Calibri;mso-fareast-font-family:
+"Times New Roman";mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri;
+mso-fareast-language:EN-GB'>To make a calendar publicly viewable through
+yearplanner.org and to find the Calendar ID do the following:<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+normal'><span style='mso-ascii-font-family:Calibri;mso-fareast-font-family:
+"Times New Roman";mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri;
+mso-fareast-language:EN-GB'>&nbsp;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+margin-left:27.0pt;margin-bottom:.0001pt;text-indent:-18.0pt;line-height:normal;
+mso-list:l0 level1 lfo1;tab-stops:list 36.0pt;vertical-align:middle'><![if !supportLists]><span
+style='mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri;mso-fareast-language:
+EN-GB'><span style='mso-list:Ignore'>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='mso-ascii-font-family:Calibri;
+mso-fareast-font-family:"Times New Roman";mso-hansi-font-family:Calibri;
+mso-bidi-font-family:Calibri;mso-fareast-language:EN-GB'>First set the Google
+calendar settings to make the calendar publicly viewable, see the following
+link:<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+margin-left:27.0pt;margin-bottom:.0001pt;line-height:normal'><span
+style='mso-ascii-font-family:Calibri;mso-fareast-font-family:"Times New Roman";
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri;mso-fareast-language:
+EN-GB'><a href="https://support.google.com/calendar/answer/37083?hl=en">https://support.google.com/calendar/answer/37083?hl=en</a><o:p></o:p></span></p>
+
+<p></p>
+<p><b>NOTE - DO NOT TICK THE BOX SAYING "Share only my free/busy information (Hide details)" 
+OR IT WILL NOT WORK DUE TO THE WAY GOOGLE RESTRICTS free/busy INFO THROUGH THE APIS</b></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+margin-left:27.0pt;margin-bottom:.0001pt;line-height:normal'><span
+style='mso-ascii-font-family:Calibri;mso-fareast-font-family:"Times New Roman";
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri;mso-fareast-language:
+EN-GB'>&nbsp;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+margin-left:27.0pt;margin-bottom:.0001pt;text-indent:-18.0pt;line-height:normal;
+mso-list:l2 level1 lfo2;tab-stops:list 36.0pt;vertical-align:middle'><![if !supportLists]><span
+style='mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri;mso-fareast-language:
+EN-GB'><span style='mso-list:Ignore'>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='mso-ascii-font-family:Calibri;
+mso-fareast-font-family:"Times New Roman";mso-hansi-font-family:Calibri;
+mso-bidi-font-family:Calibri;mso-fareast-language:EN-GB'>The find the Calendar
+ID of the calendar you wish to view in yearplanner.org as follows:<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+margin-left:54.0pt;margin-bottom:.0001pt;text-indent:-18.0pt;line-height:normal;
+mso-list:l2 level2 lfo3;tab-stops:list 72.0pt;vertical-align:middle'><![if !supportLists]><span
+style='mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri;mso-fareast-language:
+EN-GB'><span style='mso-list:Ignore'>a.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='mso-ascii-font-family:Calibri;
+mso-fareast-font-family:"Times New Roman";mso-hansi-font-family:Calibri;
+mso-bidi-font-family:Calibri;mso-fareast-language:EN-GB'>Go into your Google
+Calendar and select the gearwheel and then settings from the dropdown<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+margin-left:54.0pt;margin-bottom:.0001pt;line-height:normal'><span
+style='mso-ascii-font-family:Calibri;mso-fareast-font-family:"Times New Roman";
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri;mso-fareast-language:
+EN-GB;mso-no-proof:yes'><!--[if gte vml 1]><v:shapetype id="_x0000_t75"
+ coordsize="21600,21600" o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe"
+ filled="f" stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="Picture_x0020_4" o:spid="_x0000_i1028" type="#_x0000_t75"
+ alt="Google &#10;Calendar &#10;CREATE &#10;June 2017 &#10;Search Calendar &#10;s &#10;27 &#10;3 &#10;10 &#10;17 &#10;24 &#10;Day &#10;Tue &#10;Otj— &#10;6 &#10;Month &#10;Wed &#10;31 &#10;7 &#10;2 &#10;9 &#10;16 &#10;23 &#10;30 &#10;Today &#10;Sat &#10;27 &#10;3 &#10;10 &#10;Sun &#10;28 &#10;4 &#10;11 &#10;June 2017 &#10;Mon &#10;29 &#10;5 &#10;s &#10;28 &#10;4 &#10;11 &#10;18 &#10;2 &#10;29 &#10;5 &#10;12 &#10;19 &#10;26 &#10;30 &#10;6 &#10;13 &#10;20 &#10;27 &#10;4 &#10;31 &#10;7 &#10;14 &#10;21 &#10;28 &#10;8 &#10;15 &#10;22 &#10;29 &#10;6 &#10;test task for read only testing ed2 &#10;12 &#10;test task for read only testing ed2 &#10;My calendars &#10;hughgliderpilot@googl_.. &#10;Birthdays &#10;Nicole V/riqht &#10;Other calendars &#10;Add a friend's calendar &#10;Holidays in United Kin... &#10;Villa &#10;Terms - &#10;17 &#10;18 &#10;19 &#10;test task for read only testing ed2 &#10;24 &#10;25 &#10;26 &#10;13 &#10;20 &#10;27 &#10;14 &#10;21 &#10;28 &#10;4 Weeks Agenda &#10;Thu &#10;Jun 1 &#10;8 &#10;15 &#10;22 &#10;29 &#10;More &#10;Fri &#10;2 &#10;9 &#10;16 &#10;23 &#10;30 "
+ style='width:5in;height:220.5pt;visibility:visible;mso-wrap-style:square'>
+ <v:imagedata src="CalendarID2_files/image001.png" o:title="riqht &#10;Other calendars &#10;Add a friend's calendar &#10;Holidays in United Kin.."/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=480 height=294
+src="CalendarID2_files/image009.jpg"
+alt="Google &#10;Calendar &#10;CREATE &#10;June 2017 &#10;Search Calendar &#10;s &#10;27 &#10;3 &#10;10 &#10;17 &#10;24 &#10;Day &#10;Tue &#10;Otj— &#10;6 &#10;Month &#10;Wed &#10;31 &#10;7 &#10;2 &#10;9 &#10;16 &#10;23 &#10;30 &#10;Today &#10;Sat &#10;27 &#10;3 &#10;10 &#10;Sun &#10;28 &#10;4 &#10;11 &#10;June 2017 &#10;Mon &#10;29 &#10;5 &#10;s &#10;28 &#10;4 &#10;11 &#10;18 &#10;2 &#10;29 &#10;5 &#10;12 &#10;19 &#10;26 &#10;30 &#10;6 &#10;13 &#10;20 &#10;27 &#10;4 &#10;31 &#10;7 &#10;14 &#10;21 &#10;28 &#10;8 &#10;15 &#10;22 &#10;29 &#10;6 &#10;test task for read only testing ed2 &#10;12 &#10;test task for read only testing ed2 &#10;My calendars &#10;hughgliderpilot@googl_.. &#10;Birthdays &#10;Nicole V/riqht &#10;Other calendars &#10;Add a friend's calendar &#10;Holidays in United Kin... &#10;Villa &#10;Terms - &#10;17 &#10;18 &#10;19 &#10;test task for read only testing ed2 &#10;24 &#10;25 &#10;26 &#10;13 &#10;20 &#10;27 &#10;14 &#10;21 &#10;28 &#10;4 Weeks Agenda &#10;Thu &#10;Jun 1 &#10;8 &#10;15 &#10;22 &#10;29 &#10;More &#10;Fri &#10;2 &#10;9 &#10;16 &#10;23 &#10;30 "
+v:shapes="Picture_x0020_4"><![endif]></span><span style='mso-ascii-font-family:
+Calibri;mso-fareast-font-family:"Times New Roman";mso-hansi-font-family:Calibri;
+mso-bidi-font-family:Calibri;mso-fareast-language:EN-GB'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+margin-left:27.0pt;margin-bottom:.0001pt;line-height:normal'><span
+style='mso-ascii-font-family:Calibri;mso-fareast-font-family:"Times New Roman";
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri;mso-fareast-language:
+EN-GB'>&nbsp;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+margin-left:54.0pt;margin-bottom:.0001pt;text-indent:-18.0pt;line-height:normal;
+mso-list:l1 level1 lfo4;tab-stops:list 36.0pt;vertical-align:middle'><![if !supportLists]><span
+style='mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri;mso-fareast-language:
+EN-GB'><span style='mso-list:Ignore'>b.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='mso-ascii-font-family:Calibri;
+mso-fareast-font-family:"Times New Roman";mso-hansi-font-family:Calibri;
+mso-bidi-font-family:Calibri;mso-fareast-language:EN-GB'>On the next screen
+click on the Calendars link<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+margin-left:54.0pt;margin-bottom:.0001pt;line-height:normal'><span
+style='mso-ascii-font-family:Calibri;mso-fareast-font-family:"Times New Roman";
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri;mso-fareast-language:
+EN-GB;mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_3"
+ o:spid="_x0000_i1027" type="#_x0000_t75" alt="Google &#10;Calendar Settings &#10;General Calendars &#10;bs &#10;Search Calendar &#10;« Back to ca &#10;Language: &#10;Country: &#10;Your current time zone: &#10;Date format: &#10;Time format: &#10;Notifications: &#10;ve Cancel &#10;Englisn (LIS) &#10;United Kingdom &#10;(choose a ditterent country to see other time zones) &#10;(GMT+OI:OO) London &#10;o &#10;Display all time zones &#10;Show an additional time zone &#10;31/12/2017 &#10;1:00pm &#10;Label: &#10;o &#10;use browser notifications instead ot interruptive alerts &#10;You need to grant permission to allow browser notifications. Learn more &#10;Add automatically "
+ style='width:5in;height:211.5pt;visibility:visible;mso-wrap-style:square'>
+ <v:imagedata src="CalendarID2_files/image003.png" o:title=" &#10;o &#10;use browser notifications instead ot interruptive alerts &#10;You need to grant permission to allow browser notifications"/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=480 height=282
+src="CalendarID2_files/image010.jpg"
+alt="Google &#10;Calendar Settings &#10;General Calendars &#10;bs &#10;Search Calendar &#10;« Back to ca &#10;Language: &#10;Country: &#10;Your current time zone: &#10;Date format: &#10;Time format: &#10;Notifications: &#10;ve Cancel &#10;Englisn (LIS) &#10;United Kingdom &#10;(choose a ditterent country to see other time zones) &#10;(GMT+OI:OO) London &#10;o &#10;Display all time zones &#10;Show an additional time zone &#10;31/12/2017 &#10;1:00pm &#10;Label: &#10;o &#10;use browser notifications instead ot interruptive alerts &#10;You need to grant permission to allow browser notifications. Learn more &#10;Add automatically "
+v:shapes="Picture_x0020_3"><![endif]></span><span style='mso-ascii-font-family:
+Calibri;mso-fareast-font-family:"Times New Roman";mso-hansi-font-family:Calibri;
+mso-bidi-font-family:Calibri;mso-fareast-language:EN-GB'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+margin-left:27.0pt;margin-bottom:.0001pt;line-height:normal'><span
+style='mso-ascii-font-family:Calibri;mso-fareast-font-family:"Times New Roman";
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri;mso-fareast-language:
+EN-GB'>&nbsp;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+margin-left:27.0pt;margin-bottom:.0001pt;line-height:normal'><span
+style='mso-ascii-font-family:Calibri;mso-fareast-font-family:"Times New Roman";
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri;mso-fareast-language:
+EN-GB'>&nbsp;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+margin-left:54.0pt;margin-bottom:.0001pt;text-indent:-18.0pt;line-height:normal;
+mso-list:l4 level1 lfo5;tab-stops:list 36.0pt;vertical-align:middle'><![if !supportLists]><span
+style='mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri;mso-fareast-language:
+EN-GB'><span style='mso-list:Ignore'>c.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='mso-ascii-font-family:Calibri;
+mso-fareast-font-family:"Times New Roman";mso-hansi-font-family:Calibri;
+mso-bidi-font-family:Calibri;mso-fareast-language:EN-GB'>Click on the calendar
+you want to set up on Yearplanner.org<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+margin-left:54.0pt;margin-bottom:.0001pt;line-height:normal'><span
+style='mso-ascii-font-family:Calibri;mso-fareast-font-family:"Times New Roman";
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri;mso-fareast-language:
+EN-GB;mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_2"
+ o:spid="_x0000_i1026" type="#_x0000_t75" alt="Google &#10;Calendar Settings &#10;General Calendars Labs &#10;« Back to calendar &#10;Search Calendar &#10;My Calendars &#10;Calendars I can view and modify &#10;CALENDAR &#10;hughgliderpilot@googlemail.com &#10;Birthdays &#10;Displays birthdays ot people in Google Contacts and optionally 'Your Circles' trom Google+_ Also displays &#10;SHOW IN LIST &#10;all none &#10;anniversary and other event dates trom Google Contacts, it applicable. &#10;Nicole Wright &#10;Test calendar &#10;Tasks &#10;Create new calendar Import calendar Export calendars &#10;Other Calendars &#10;Calendars I can only view &#10;CALENDAR &#10;Holidays in United Kingdom &#10;Holidays and Observances in United Kingdom &#10;Villa &#10;« Back to calendar &#10;02017 Google - &#10;NOTIFICATIONS &#10;Edit notifications &#10;Edit notifications &#10;Edit notifications &#10;SHARING &#10;Shared: &#10;Edit &#10;settings &#10;Shared: &#10;Edit &#10;settings &#10;Shared: &#10;Edit &#10;settings &#10;Unsubscribe &#10;Unsubscribe &#10;Unsubscribe: You will no longer have access to the calendar. Other people can still use normally. &#10;Browse interesting calendars » &#10;SHOW IN LIST &#10;all none &#10;Terms ot Service - Privacy Policy &#10;NOTIFICATIONS &#10;Edit notifications &#10;Unsubscribe &#10;Unsubscribe "
+ style='width:5in;height:257.25pt;visibility:visible;mso-wrap-style:square'>
+ <v:imagedata src="CalendarID2_files/image005.png" o:title=" You will no longer have access to the calendar. Other people can still use normally"/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=480 height=343
+src="CalendarID2_files/image011.jpg"
+alt="Google &#10;Calendar Settings &#10;General Calendars Labs &#10;« Back to calendar &#10;Search Calendar &#10;My Calendars &#10;Calendars I can view and modify &#10;CALENDAR &#10;hughgliderpilot@googlemail.com &#10;Birthdays &#10;Displays birthdays ot people in Google Contacts and optionally 'Your Circles' trom Google+_ Also displays &#10;SHOW IN LIST &#10;all none &#10;anniversary and other event dates trom Google Contacts, it applicable. &#10;Nicole Wright &#10;Test calendar &#10;Tasks &#10;Create new calendar Import calendar Export calendars &#10;Other Calendars &#10;Calendars I can only view &#10;CALENDAR &#10;Holidays in United Kingdom &#10;Holidays and Observances in United Kingdom &#10;Villa &#10;« Back to calendar &#10;02017 Google - &#10;NOTIFICATIONS &#10;Edit notifications &#10;Edit notifications &#10;Edit notifications &#10;SHARING &#10;Shared: &#10;Edit &#10;settings &#10;Shared: &#10;Edit &#10;settings &#10;Shared: &#10;Edit &#10;settings &#10;Unsubscribe &#10;Unsubscribe &#10;Unsubscribe: You will no longer have access to the calendar. Other people can still use normally. &#10;Browse interesting calendars » &#10;SHOW IN LIST &#10;all none &#10;Terms ot Service - Privacy Policy &#10;NOTIFICATIONS &#10;Edit notifications &#10;Unsubscribe &#10;Unsubscribe "
+v:shapes="Picture_x0020_2"><![endif]></span><span style='mso-ascii-font-family:
+Calibri;mso-fareast-font-family:"Times New Roman";mso-hansi-font-family:Calibri;
+mso-bidi-font-family:Calibri;mso-fareast-language:EN-GB'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+margin-left:27.0pt;margin-bottom:.0001pt;line-height:normal'><span
+style='mso-ascii-font-family:Calibri;mso-fareast-font-family:"Times New Roman";
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri;mso-fareast-language:
+EN-GB'>&nbsp;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+margin-left:54.0pt;margin-bottom:.0001pt;text-indent:-18.0pt;line-height:normal;
+mso-list:l3 level1 lfo6;tab-stops:list 36.0pt;vertical-align:middle'><![if !supportLists]><span
+style='mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri;mso-fareast-language:
+EN-GB'><span style='mso-list:Ignore'>d.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='mso-ascii-font-family:Calibri;
+mso-fareast-font-family:"Times New Roman";mso-hansi-font-family:Calibri;
+mso-bidi-font-family:Calibri;mso-fareast-language:EN-GB'>Copy the calendar id
+into <a href="https://yearplanner.org">https://yearplanner.org</a><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+margin-left:54.0pt;margin-bottom:.0001pt;line-height:normal'><span
+style='mso-ascii-font-family:Calibri;mso-fareast-font-family:"Times New Roman";
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri;mso-fareast-language:
+EN-GB;mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_1"
+ o:spid="_x0000_i1025" type="#_x0000_t75" alt="Google &#10;Search Calendar &#10;Test calendar Details &#10;Calendar Details Share this Calendar &#10;Calendar Name: &#10;Description: &#10;Location: &#10;Calendar Time Zone: &#10;Please first select a country to select the &#10;right set of time zones. To see all time &#10;zones, check the box instead. &#10;Auto-accept invitations &#10;Calendars for resources like conference &#10;moms can automatically accept invitations &#10;from people with whom the calendar is &#10;shared when there are no conflicting events. &#10;Leam more &#10;Embed This Calendar &#10;Embed this calendar in your website or blog &#10;by pasting this code into your web page. To &#10;embed multiple calendars, click on the &#10;Customize Link &#10;Calendar Address: &#10;Learn more &#10;Change sharing settings &#10;Private Address: &#10;Leam more &#10;Export Calendar: &#10;Leam more &#10;Delete calendar. &#10;Edit notifications &#10;est calendar &#10;Trash &#10;e.g. &quot;San Francisco&quot; or &quot;New York&quot; or &quot;LISA.&quot; Specifying a general location will help people find events on your calendar (if ts public) &#10;(choose a different country to see other time zones) &#10;Country: United Kingdom &#10;Display all time zones &#10;Now select a time zone: (GMT+OI :OO) London &#10;O &#10;Auto-accept invitations that do not conflict &#10;Automatically add all invitations to this calendar. &#10;o &#10;Do not snow invitations. &#10;(calendar I &#10;This is the address for your cal &#10;Paste this code into your website. &#10;Customize the color, size, and other options &#10;&lt;itrame &#10;src=&quot;https://calendar_google.com/cal &#10;endar/emöed? &#10;ess you ave made your calendar public. &#10;Reset private URLS &#10;This is the private address for this calendar. Dont share this address with others unless you want them to see all the events on this &#10;calendar. &#10;Export this calendar &#10;Export All events in this calendar will be exported in an ICS file. &#10;Permanently delete this calendar &#10;Delete The calendar will be oermanentlv erased. Nobodv will be able to use it anvmore_ "
+ style='width:5in;height:306pt;visibility:visible;mso-wrap-style:square'>
+ <v:imagedata src="CalendarID2_files/image007.png" o:title="emöed? &#10;ess you ave made your calendar public. &#10;Reset private URLS &#10;This is the private address for this calendar. Dont share this address with others unless you want them to see all the events on this &#10;calendar"/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=480 height=408
+src="CalendarID2_files/image012.jpg"
+alt="Google &#10;Search Calendar &#10;Test calendar Details &#10;Calendar Details Share this Calendar &#10;Calendar Name: &#10;Description: &#10;Location: &#10;Calendar Time Zone: &#10;Please first select a country to select the &#10;right set of time zones. To see all time &#10;zones, check the box instead. &#10;Auto-accept invitations &#10;Calendars for resources like conference &#10;moms can automatically accept invitations &#10;from people with whom the calendar is &#10;shared when there are no conflicting events. &#10;Leam more &#10;Embed This Calendar &#10;Embed this calendar in your website or blog &#10;by pasting this code into your web page. To &#10;embed multiple calendars, click on the &#10;Customize Link &#10;Calendar Address: &#10;Learn more &#10;Change sharing settings &#10;Private Address: &#10;Leam more &#10;Export Calendar: &#10;Leam more &#10;Delete calendar. &#10;Edit notifications &#10;est calendar &#10;Trash &#10;e.g. &quot;San Francisco&quot; or &quot;New York&quot; or &quot;LISA.&quot; Specifying a general location will help people find events on your calendar (if ts public) &#10;(choose a different country to see other time zones) &#10;Country: United Kingdom &#10;Display all time zones &#10;Now select a time zone: (GMT+OI :OO) London &#10;O &#10;Auto-accept invitations that do not conflict &#10;Automatically add all invitations to this calendar. &#10;o &#10;Do not snow invitations. &#10;(calendar I &#10;This is the address for your cal &#10;Paste this code into your website. &#10;Customize the color, size, and other options &#10;&lt;itrame &#10;src=&quot;https://calendar_google.com/cal &#10;endar/emöed? &#10;ess you ave made your calendar public. &#10;Reset private URLS &#10;This is the private address for this calendar. Dont share this address with others unless you want them to see all the events on this &#10;calendar. &#10;Export this calendar &#10;Export All events in this calendar will be exported in an ICS file. &#10;Permanently delete this calendar &#10;Delete The calendar will be oermanentlv erased. Nobodv will be able to use it anvmore_ "
+v:shapes="Picture_x0020_1"><![endif]></span><span style='mso-ascii-font-family:
+Calibri;mso-fareast-font-family:"Times New Roman";mso-hansi-font-family:Calibri;
+mso-bidi-font-family:Calibri;mso-fareast-language:EN-GB'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+margin-left:54.0pt;margin-bottom:.0001pt;line-height:normal'><span
+style='mso-ascii-font-family:Calibri;mso-fareast-font-family:"Times New Roman";
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri;mso-fareast-language:
+EN-GB'>&nbsp;<o:p></o:p></span></p>
+
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+
+    </div>
+</body>
+</html>
