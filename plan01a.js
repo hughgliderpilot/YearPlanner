@@ -340,35 +340,52 @@ function getEvents (calendarId) {
     'singleEvents': true,
     'orderBy': 'startTime'
   }).then(function (response) {
-    for (var j = 0; j < response.result.items.length; j++) {
-      var eventHeader = response.result.items[j].summary
-      var startDate = new Date(response.result.items[j].start.date)
+    var eventHeader
+    var startDate
+    var endDate
+    var startDay
+    var startMonth
+    var startYear
+    var endDay
+    var endMonth
+    var endYear
+    var endHoursUTC
+    var sequence
+    var eventId
+    var j
+
+    for (j = 0; j < response.result.items.length; j++) {
+      startDate = new Date(response.result.items[j].start.date)
       if (isNaN(startDate)) { startDate = new Date(response.result.items[j].start.dateTime) };
       // Google calendar can store start and end dates as date (whole day events) or as dateTime
-      var endDate = new Date(response.result.items[j].end.date)
+      endDate = new Date(response.result.items[j].end.date)
       if (isNaN(endDate)) { endDate = new Date(response.result.items[j].end.dateTime) };
 
-      var startYear = startDate.getFullYear()
-      var startMonth = startDate.getMonth()
-      var startDay = startDate.getDate()
+      startYear = startDate.getFullYear()
+      startMonth = startDate.getMonth()
+      startDay = startDate.getDate()
       startDate = new Date(startYear, startMonth, startDay, 12, 0, 0)
 
       // need to handle all day events which end 00:00:00 UTC day after real end date, by resetting date to real end date
       // leave all others.
-      var endYear = endDate.getFullYear()
-      var endMonth = endDate.getMonth()
-      var endDay = endDate.getDate()
-      var endHoursUTC = endDate.getUTCHours()
+      endYear = endDate.getFullYear()
+      endMonth = endDate.getMonth()
+      endDay = endDate.getDate()
+      endHoursUTC = endDate.getUTCHours()
       if (endHoursUTC === 0) { endDay = endDay - 1 };
       endDate = new Date(endYear, endMonth, endDay, 12, 0, 0)
+      eventHeader = response.result.items[j].summary
+      eventId = response.result.items[j].id
+      sequence = response.result.items[j].sequence
 
-      var eventId = response.result.items[j].id
-      var sequence = response.result.items[j].sequence
       eventInfo(eventId, eventHeader, startDate, endDate, sequence, calendarId)  // keep in eventInfo object for later use
-      events[j] = eventId   // need an array to track the index so can use id displayEvents
+      events[j] = eventId   // need an array to track the index so can use in displayEvents
     }
     sheetVariables.one.events = events
     displayEvents()
+  }, function (response) {
+    // Error message handling
+    $('#gapierror').css({'visibility': 'visible'}).html('<p>' + response.result.error.message + '</p>')
   })
 }    // end of getEvents  ==========================================
 
@@ -729,8 +746,8 @@ function writeEvent (sd, ed, text, cont, rank, eventId) {
 }   // end of writeEvent function  =========================
 
 function makeRequest () {      // eslint-disable-line no-unused-vars
-  var hscale = 0.9
-  var vscale = 0.9
+  var hscale = 0.95
+  var vscale = 0.95
   var maxSlots = 3
   var topLeftX = 38 * hscale
   var topLeftY = 59 * vscale
@@ -738,7 +755,7 @@ function makeRequest () {      // eslint-disable-line no-unused-vars
   var monthHeight = 76 * vscale
   var eventIncrementY = 17 * hscale
   var events = []
-  var reqCalendar
+  var reqCalendar = ''
   var reqYear = moment().year()  // default reqYear on load is this year, maybe change this later to make selected year pervasive using cookies?
   var monthFirstDay = []
   sheetVariables('one', hscale, vscale, reqYear, topLeftX, topLeftY, dayWidth, monthHeight, eventIncrementY, monthFirstDay, maxSlots, events, reqCalendar)
@@ -764,7 +781,9 @@ function makeRequest () {      // eslint-disable-line no-unused-vars
     blankPlanner(reqYear)  // reload planner with selected year
     sheetVariables.one.reqYear = reqYear
     var calendarId = sheetVariables.one.reqCalendar
-    getEvents(calendarId)
+    if (calendarId !== '') {
+      getEvents(calendarId)
+    }
   })
 
   $('#right').click(function () {
@@ -775,7 +794,9 @@ function makeRequest () {      // eslint-disable-line no-unused-vars
     sheetVariables.one.reqYear = reqYear
     var calendarId = sheetVariables.one.reqCalendar
     blankPlanner(reqYear)  // reload planner with selected year
-    getEvents(calendarId)
+    if (calendarId !== '') {
+      getEvents(calendarId)
+    }
   })
 
   $('.calname').click(function () {
@@ -785,5 +806,21 @@ function makeRequest () {      // eslint-disable-line no-unused-vars
     sheetVariables.one.reqCalendar = calendarId // store this as current calendar
     blankPlanner(reqYear)  // reload planner with selected year
     getEvents(calendarId)
+  })
+
+  $('#go').click(function () {
+    $('.event1').remove()
+    $('#overflow1').remove()
+    if ($('#calID').val() === '') {
+    } else {
+      var calendarId = $('#calID').val()
+      sheetVariables.one.reqCalendar = calendarId // store this as current calendar
+      blankPlanner(reqYear)  // reload planner with selected year
+      getEvents(calendarId)
+    }
+  })
+
+  $('#print').click(function () {
+    window.print()
   })
 }  // end of makeRequest()    ===================================
