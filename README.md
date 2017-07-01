@@ -5,13 +5,6 @@ The code is running on yearplanner.org, if you want to see what it looks like in
 
 If you want to use elsewhere then you will need to modify the CLIENT_ID variable to match your own Google API Client ID so you can set it up with your domain name. 
 
-There are only five files used:
-
-- index.html
-- about.html
-- plan01a.js
-- planstyle.css
-- yplogo.cio
 
 Year Planner uses jquery, googeapis, bootstrap, moment, bootstrap-datepicker
 
