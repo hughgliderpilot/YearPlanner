@@ -102,6 +102,20 @@ form button {
   cursor: hand;
 }
 
+.col-fixed-360 {
+  width: 360px;
+  padding: 5px;
+  height: 950px;
+}
+
+.col-fixed-1425 {
+  margin-left: 360px;
+  width: 1425px
+  padding: 0px;
+  position: relative;
+  top: -950px;
+}
+
 @media print {
   body * {
     visibility: hidden;
