@@ -8,4 +8,6 @@ If you want to use elsewhere then you will need to modify the CLIENT_ID variable
 
 Year Planner uses jquery, googeapis, bootstrap, moment, bootstrap-datepicker
 
+To see YearPlanner in operation go to <a href=https://www.yearplanner.org>www.yearplanner.org</a>.
+
 
