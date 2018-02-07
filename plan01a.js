@@ -207,7 +207,7 @@ function blankPlanner (reqYear) {
   $('#months_left').clone().prop('id', 'months_right').insertAfter('#months_left')
   $('#months_right').css({top: monthTop, left: 38 * dayWidth + 15 * hscale})
 
-  // put year title at top
+  // put year title at the top
   $('#year_title').text((reqYear).toString())
   $('#year_title').css({'visibility': 'visible', 'font': yearFont, 'color': 'white'})
   $('#year_title').css({'top': 0 * vscale, left: 725 * hscale})
